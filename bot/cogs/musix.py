@@ -203,26 +203,6 @@ class music(commands.Cog, wavelink.WavelinkMixin):
     async def notAvailable(self, ctx):
         await ctx.send("`This command is soon to be implemented.`")
 
-    @commands.command()
-    async def showGuilds(self, ctx):
-        for guild in self.client.guilds:
-            print(guild.name)
-            if guild.name == "Cyber Tribe":
-                print('-------------------')
-                for member in guild.members:
-                    if member.name == 'Rythm':
-                        print(f"Guild: {guild.name}, {member} is Admin = {member.guild_permissions.administrator}, Can ban/kick members = {member.guild_permissions.ban_members}")
-                    else:
-                        print(f"{guild.name}: {member}, Admin = {member.guild_permissions.administrator}, Can ban/kick members = {member.guild_permissions.ban_members}")
-
-    @commands.command()
-    async def showSkip(self, ctx):
-        vc = ctx.author.voice.channel
-        num_of_members = 0
-        for member in vc.members:
-            if member.id != 950742994200453152 and member.id != 953729504071798855:
-                num_of_members += 1
-
         DICTIONARY[ctx.guild.id]['SKIP'].add(ctx.author.id)
         current_votes = len(DICTIONARY[ctx.guild.id]['SKIP'])
         required_votes = math.ceil((2/3) * num_of_members)
