@@ -1,3 +1,9 @@
+
+
+
+https://github.com/ChessZra/DiscordBot-Rythm-Clone/assets/101159322/11018713-6e74-474e-bcfd-cdc1efc9e55e
+
+
 # DiscordBot-Rythm-Clone
 Rythm-Clone is a Discord music bot that is a clone of the popular "Rythm" bot. It allows you to fetch any video on YouTube and play it back on the Discord voice chat. It utilizes the Lavalink player, which provides high-quality audio playback.
 
