@@ -1,4 +1,4 @@
-from bot import MusicBot
+from bot.bot import MusicBot
 
 def main():
     MusicBot().run()

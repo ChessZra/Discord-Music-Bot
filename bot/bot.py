@@ -1,8 +1,10 @@
 from pathlib import Path
-from discord.ext import commands
-import discord
 
-DICTIONARY = {}
+import discord
+from discord.ext import commands
+
+from bot.essentials.server_database import initialize_database
+
 
 class MusicBot(commands.Bot):
     def __init__(self):
@@ -12,25 +14,22 @@ class MusicBot(commands.Bot):
 
     def setup(self):
         print("Running setup...")
-
         for cog in self._cogs:
             self.load_extension(f"bot.cogs.{cog}")
-            print(f" Loaded \'{cog}\' cog.")
-
+            print(f"Loaded \'{cog}\' cog.")
         print("Setup complete.")
 
     def run(self):
         self.setup()
-        token_file = open('bot/TOKEN.txt', 'r')
-        TOKEN = token_file.readlines()[1]
-        token_file.close()
-        print("Running bot...")
-        super().run(TOKEN, reconnect=True)
+        with open('bot/TOKEN.txt', 'r') as token_file:
+            TOKEN = token_file.readlines()[1]
+            print("Running bot...")
+            super().run(TOKEN, reconnect=True)
 
     async def shutdown(self):
         print("Closing connection to Discord...")
         await super().close()
-
+    
     async def close(self):
         print("Closing on keyboard interrupt...")
         await self.shutdown()
@@ -53,11 +52,7 @@ class MusicBot(commands.Bot):
     async def on_ready(self):
         self.client_id = (await self.application_info()).id
         self.remove_command('help')
-        for guild in self.guilds:
-            DICTIONARY[guild.id] = {'queues':[], 'lengths':[], 'authors':[], 'players':[],
-                                     'sources':[], 'queueDisplays':{}, 'lyrics':"", 'timers':[],
-                                      'crossfadetimers': [], 'CROSSFADE': [5, ''], 'ctxs': [], 'SKIP': set([]),
-                                      'autoplay':[True, [], None]}
+        initialize_database(self.guilds)
         print("Bot ready.")
 
     async def prefix(self, bot, msg):
@@ -74,10 +69,7 @@ class MusicBot(commands.Bot):
             await self.process_commands(msg)
 
     async def on_guild_join(self, guild):
-        DICTIONARY[guild.id] = {'queues':[], 'lengths':[], 'authors':[], 'players':[],
-                                     'sources':[], 'queueDisplays':{}, 'lyrics':"", 'timers':[],
-                                      'crossfadetimers': [], 'CROSSFADE': [5, ''], 'ctxs': [], 'SKIP': set([]),
-                                      'autoplay':[True, [], None]}
+
         print("Class Bot:\n async def on_guild_join:\n  Joined", guild)
         message = "**Thank you for adding me! :white_check_mark:\n`-` My prefix here is `!`\n`-` You can see a list of commands by typing `!help`\n`-` If you need help, feel free to contact `eZra #2141`**"
         message += "\n**`-` To get started, type `!play <song>`**"
