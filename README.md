@@ -20,7 +20,7 @@ Display information about the current track.
 
 Implemented an autoplay class that utilizes the YouTube API to automatically play similar songs based on the current track.
 
-Other commands include: !leave, !autoplay, !play, !join, !pause, !resume, !skip, !skipto, !forceskip, !stop, !remove, !queue, !lyrics, !crossfade (coming soon, contact me if you're interested),
+Other commands include: !leave, !autoplay, !play, !join, !pause, !resume, !skip, !skipto, !forceskip, !stop, !remove, !queue, !lyrics, !crossfade (contact me if you're interested as this utilizes another bot as the second player in charge for the crossfade-effect),
 !playlist (coming soon).
 
 # Usage
