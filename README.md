@@ -8,7 +8,7 @@ https://github.com/ChessZra/DiscordBot-Rythm-Clone/assets/101159322/11018713-6e7
 Rythm is a discord music bot that is inspired by the popular "Rythm" bot that's been banned from Discord. It allows you to fetch any video on YouTube and play it back on the Discord voice chat. It utilizes the Lavalink player, which provides high-quality audio playback.
 
 # Features
-Rythm-Clone has the following features:
+"Rythm" has the following features:
 
 Play any video on YouTube in a Discord voice channel.
 
