@@ -4,8 +4,8 @@
 https://github.com/ChessZra/DiscordBot-Rythm-Clone/assets/101159322/11018713-6e74-474e-bcfd-cdc1efc9e55e
 
 
-# "Rythm" Music Bot
-Rythm is a discord music bot that is inspired by the popular "Rythm" bot that's been banned from Discord. It allows you to fetch any video on YouTube and play it back on the Discord voice chat. It utilizes the Lavalink player, which provides high-quality audio playback.
+# "CrossfadeX" Music Bot
+A discord music bot that is inspired by the popular "Rythm" bot that's been banned from Discord. It allows you to fetch any video on YouTube and play it back on the Discord voice chat. It utilizes the Lavalink player, which provides high-quality audio playback.
 
 # Features
 "Rythm" has the following features:
